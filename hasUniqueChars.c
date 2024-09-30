@@ -3,7 +3,7 @@
  * 
  * TODO: replace this line with lines containing a description
  * 
- * Author: 
+ * Author: Solomon Dawit
  */
 
 #include <stdio.h>  // fprintf, printf
@@ -88,24 +88,31 @@ bool hasUniqueChars(char * inputStr) {
   // -------------------------------------------------------------
 
   // TODO: Declare additional variables you need here
-  unsigned long index = 1;
+ 
   
 
   
+
   
-    }
     // TODO: Add your code here to check nextChar, see if it is a duplicate, and update the checkBits variables
+    
     for(i = 0; i < strlen(inputStr); i++) {
     nextChar = inputStr[i];
-    unsigned long mask = 1;
+    unsigned long index = nextChar-65;
+    unsigned long mask = 1l<<index;
+    
       if(nextChar>=65 && nextChar<=126){
-        mask = mask << nextChar-65
         if (checkBitsA_z & mask){
           return false;
         }
-      
+        else{checkBitsA_z = checkBitsA_z | mask;}
         
-        else{checkBitsA_z | mask}
+        if (checkBitsexcl_amp & mask){
+          return false;
+        }
+        else{checkBitsexcl_amp = checkBitsexcl_amp | mask;}
+
+      }
 
     // -------------------------------------------------------------
     // Below this are examples of debugging print statements you could use
@@ -124,5 +131,5 @@ bool hasUniqueChars(char * inputStr) {
 
   // if through all the characters, then no duplicates found
   return true;
-  
+
 }
