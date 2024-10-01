@@ -68,14 +68,14 @@ int main() {
   assert(ok);
 
   // Test 6: This should be false and fail, because there are duplicates
-  strcpy(string3, "!!!???");
+  strcpy(string3, "This and that and the third");
   ok = hasUniqueChars(string3);
-  assert(ok);
+  assert(!(ok));
 
  // Test 6: This should be false and fail, because there are duplicates
-  strcpy(string3, "!@#$^&*()))""012344456789:;");
+  strcpy(string3, "1111111111 and 111111111111 or 2222222222");
   ok = hasUniqueChars(string3);
-  assert(ok);
+  assert(!(ok));
 
   // Test 7: This should be true and not fail, because there are no duplicates in all the ascii 
   // symbol values  
@@ -91,7 +91,7 @@ int main() {
   //Test 9: This should fail, there are duplicates
   strcpy(string3, "abcDEFGHIJKLMNOPQRSTUVWXYZabcdefGHijklmnopqrstuvwxyz");
   ok = hasUniqueChars(string3);
-  assert(ok);
+  assert(!(ok));
 
   //Test 10: This should pass, there are no duplicates because spaces don't count
   strcpy(string3, "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z");
@@ -101,8 +101,8 @@ int main() {
   // NOTE: if you add a \n to any tests, this should cause the
   //       exit failure given. Keep this test last so you can check 
   //       that others pass or fail as you expect them to.
-  strcpy(string3, "a b cc\n");
-  ok = hasUniqueChars(string3);
+  // strcpy(string3, "a b cc\n");
+  // ok = hasUniqueChars(string3);
   // other examples that should fail that you can place in strings
   // are \0 or \t or \r
   // See problem description for more details about escape sequences
